@@ -1,6 +1,7 @@
 \usepackage{graphicx}     % 确保加载 graphicx 宏包
 \usepackage{xeCJK}
 \usepackage[dvipsnames]{xcolor}
+\usepackage{framed}
 
 \graphicspath{ {./assets/} }
 
@@ -17,16 +18,19 @@
     #2% <--- 图片或图片内容放这里
   \end{minipage}%
   \hspace{#3}%
-  \begin{minipage}[c]{\dimexpr\linewidth-#1-#3\relax}%
-    #4% <--- 文本放这里
+  \begin{minipage}[c]{\dimexpr0.5\linewidth-#3\relax}%
+    \begin{flushleft}
+      #4% <--- 文本放这里
+    \end{flushleft}
   \end{minipage}%
   \par
 }
 
 \newcommand{\textAndImage}[4]{%
   \par\noindent
-  \begin{minipage}[c]{\dimexpr\linewidth-#1-#3\relax}%
-    \begin{flushright}
+  \begin{flushright}
+  \begin{minipage}[c]{\dimexpr0.5\linewidth-#3\relax}%
+  \begin{flushright}
     #4% <--- 文本放这里
     \end{flushright}
   \end{minipage}%
@@ -34,8 +38,43 @@
   \begin{minipage}[c]{#1}%
     #2% <--- 图片或图片内容放这里
   \end{minipage}%
+  \end{flushright}
   \par
 }
+
+\newenvironment{textRight}[0]{%
+  % Code executed at \begin{textRight}
+  \par\noindent
+  \begin{flushright}%
+  \begin{minipage}[c]{\dimexpr0.75\textwidth\relax}%
+}{%
+  % Code executed at \end{textRight}
+  \end{minipage}%
+  \end{flushright}%
+  \par%
+}
+
+\newenvironment{textLeft}[0]{%
+  % Code executed at \begin{textRight}
+  \par\noindent
+  \begin{flushleft}%
+  \begin{minipage}[c]{\dimexpr0.75\textwidth\relax}%
+}{%
+  % Code executed at \end{textRight}
+  \end{minipage}%
+  \end{flushleft}%
+  \par%
+}
+
+\newenvironment{readerSaid}{
+  \medskip
+    \color{YellowOrange}
+}{\medskip}
+
+\newenvironment{teacherSaid}{
+  \medskip
+    \color{MidnightBlue}
+}{\medskip}
 
 \newcommand{\readerConfused}[1]{
   \textAndImage
@@ -52,7 +91,7 @@
       % 也不能使用 \label{...} 来引用
     } % 左侧区域内容 (图片 + 手动标题)
     {1em} % 图片和文本之间的间距
-    {\textcolor{YellowOrange}{#1}}
+    {\linewidth0.35\textwidth\textcolor{YellowOrange}{#1}}
 }
 
 \newcommand{\readerEureka}[1]{
