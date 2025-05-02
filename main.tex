@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{xcolor}
+\usepackage{graphicx}     % 确保加载 graphicx 宏包
+\usepackage{lipsum}
+\usepackage[margin=2cm]{geometry}
+\usepackage{xeCJK}
+
+\include{dialogs}
+
+\begin{document}
+
+\section{角色對話框}
+
+\subsection{讀者}
+讀者角色(\readerName) 會盡可能提出一些讀者或初學者可能會提出的問題。
+
+\vspace{2cm} % 添加一些空间
+\readerConfused{我很疑惑，為什麼會這樣}
+\readerEureka{原來如此！那我知道了！}
+\readerQuestioning{不對啊！這跟你說的不一樣啊}
+\readerExcitement{我知道！我知道！}
+
+\subsection{講師}
+講師(\teacherName) 會去回覆讀者的問題、去解釋一些概念。
+\vspace{2cm} % 添加一些空间
+\teacherConfident{沒錯！就是這樣！跟你說的一樣，只要照著做就會成功！}
+\teacherPause{你可以這麼理解吧？}
+\teacherTalking{首先讓我來舉一些例子！}
+
+\break
+\subsection{對話}
+前後對話間，會有一個 \textbackslash space\{-4cm\} 的空間，讓對話間的空白更小。
+\readerConfused{我很疑惑，為什麼會這樣}
+\vspace{-4cm}
+\teacherTalking{沒問題啊}
+\readerExcitement{對欸！那我搞錯了}
+
+\end{document}

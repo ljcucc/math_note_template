@@ -1,0 +1,140 @@
+\usepackage{graphicx}     % 确保加载 graphicx 宏包
+\usepackage{xeCJK}
+\usepackage[dvipsnames]{xcolor}
+
+\graphicspath{ {./assets/} }
+
+\setCJKmainfont{LXGW WenKai Mono TC}
+\setmainfont{LXGW WenKai Mono TC}
+
+\newcommand{\readerName}{Wuffels Wolf}
+\newcommand{\teacherName}{Dr.Drone}
+
+% 定义主宏命令 (保持不变)
+\newcommand{\imageAndText}[4]{%
+  \par\noindent
+  \begin{minipage}[c]{#1}%
+    #2% <--- 图片或图片内容放这里
+  \end{minipage}%
+  \hspace{#3}%
+  \begin{minipage}[c]{\dimexpr\linewidth-#1-#3\relax}%
+    #4% <--- 文本放这里
+  \end{minipage}%
+  \par
+}
+
+\newcommand{\textAndImage}[4]{%
+  \par\noindent
+  \begin{minipage}[c]{\dimexpr\linewidth-#1-#3\relax}%
+    \begin{flushright}
+    #4% <--- 文本放这里
+    \end{flushright}
+  \end{minipage}%
+  \hspace{#3}%
+  \begin{minipage}[c]{#1}%
+    #2% <--- 图片或图片内容放这里
+  \end{minipage}%
+  \par
+}
+
+\newcommand{\readerConfused}[1]{
+  \textAndImage
+    {0.25\textwidth} % 左侧区域宽度
+    {%
+      % 这是 figure 环境里面的内容，但没有 figure 环境本身
+      \centering % 确保图片在左侧区域居中
+      \includegraphics[width=\linewidth]{a-confused.png} % 使用 \linewidth 让图片宽度充满左侧区域
+      \vspace{0.5em} % 图片和标题之间留一点垂直空间
+      \centering % 确保标题文本居中
+      \small % 使用小字体作为标题
+      {\textcolor{YellowOrange}\readerName}
+      % 注意：这里没有 \caption{...}，这只是普通的文本
+      % 也不能使用 \label{...} 来引用
+    } % 左侧区域内容 (图片 + 手动标题)
+    {1em} % 图片和文本之间的间距
+    {\textcolor{YellowOrange}{#1}}
+}
+
+\newcommand{\readerEureka}[1]{
+  \textAndImage
+    {0.25\textwidth} % 左侧区域宽度
+    {%
+      \centering
+      \includegraphics[width=\linewidth]{a-eureka.png}
+      \vspace{0.5em}
+      \centering
+      \small
+      {\textcolor{YellowOrange}\readerName}
+    }
+    {1em}
+    {\textcolor{YellowOrange}{#1}}
+}
+
+\newcommand{\readerQuestioning}[1]{
+  \textAndImage
+    {0.25\textwidth}
+    {
+      \centering  \includegraphics[width=\linewidth]{a-questioning.png}
+      \vspace{0.5em}
+      \centering \small {\textcolor{YellowOrange}\readerName}
+    }
+    {1em}
+    {\textcolor{YellowOrange}{#1}}
+}
+
+\newcommand{\readerExcitement}[1]{
+  \textAndImage
+    {0.25\textwidth}
+    {
+      \centering  \includegraphics[width=\linewidth]{a-excitement.png}
+      \vspace{0.5em}
+      \centering \small {\textcolor{YellowOrange}\readerName}
+    }
+    {1em}
+    {\textcolor{YellowOrange}{#1}}
+}
+
+
+\newcommand{\teacherConfident}[1]{
+  \imageAndText
+  {0.25\textwidth}
+  {
+    \centering
+    \includegraphics[width=\linewidth]{b-confident.png}
+    \vspace{0.5em}
+    \centering
+    \small
+    {\textcolor{MidnightBlue}\teacherName}
+  }
+  {1em}
+  {\textcolor{MidnightBlue}{#1}}
+}
+
+\newcommand{\teacherTalking}[1]{
+  \imageAndText
+    {0.25\textwidth}
+    {
+      \centering
+      \includegraphics[width=\linewidth]{b-talking.png}
+      \vspace{0.5em}
+      \centering
+      \small
+      {\textcolor{MidnightBlue}\teacherName}
+    }
+    {1em}
+    {\textcolor{MidnightBlue}{#1}}
+}
+
+\newcommand{\teacherPause}[1]{
+  \imageAndText
+    {0.25\textwidth}
+    {
+      \centering
+      \includegraphics[width=\linewidth]{b-pause.png}
+      \vspace{0.5em}
+      \centering
+      \small {\textcolor{MidnightBlue}\teacherName}
+    }
+    {1em}
+    {\textcolor{MidnightBlue}{#1}}
+}
