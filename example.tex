@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage{xcolor}
+\usepackage{graphicx}     % 确保加载 graphicx 宏包
+\usepackage{lipsum}
+\usepackage[margin=2cm]{geometry}
+\usepackage{xeCJK}
+\usepackage{amsmath}
+
+\include{dialogs}
+
+\begin{document}
+
+
+\section*{線性代數的第一站：什麼是線性組合？}
+
+\readerConfused{「線性組合」聽起來好抽象，我不太能想像它到底是什麼。是像組合數學那樣的意思嗎？}
+\vspace{-2cm}
+
+\teacherTalking{這是個好問題！雖然「組合」這個詞有點像，但「線性組合」其實是在講「用一堆向量加起來並且乘上係數」的概念。}
+\vspace{-2cm}
+
+\readerExcitement{喔～所以是「向量」加起來，再乘上一些數字？那可以給我一個具體的例子嗎？}
+
+\begin{textRight}\begin{readerSaid}
+如果有向量 $\vec{v}_1 = \begin{bmatrix}1 \\ 2\end{bmatrix}$ 和 $\vec{v}_2 = \begin{bmatrix}3 \\ -1\end{bmatrix}$，那它們的「線性組合」會是什麼？
+\end{readerSaid}\end{textRight}
+
+\begin{center}
+中間的一些解釋...
+\end{center}
+
+\begin{textLeft}\begin{teacherSaid}
+假設我們有兩個實數 $a$ 和 $b$，那麼 $\vec{v}_1$ 和 $\vec{v}_2$ 的線性組合就是：
+
+\[
+a \cdot \vec{v}_1 + b \cdot \vec{v}_2 = a \begin{bmatrix}1 \\ 2\end{bmatrix} + b \begin{bmatrix}3 \\ -1\end{bmatrix} = \begin{bmatrix}a + 3b \\ 2a - b\end{bmatrix}
+\]
+
+你可以想像，藉由改變 $a$ 和 $b$ 的值，我們就能在平面上得到很多不同的點。
+\end{teacherSaid}\end{textLeft}
+
+\teacherConfident{沒錯！這就是線性組合的精髓——用一組向量乘上數字，再加起來，去「生成」新的向量。這在電腦圖形、機器學習甚至物理中都非常重要！}
+
+\vspace{-4cm}
+\readerEureka{原來如此！所以只要我有一組向量，我就可以用線性組合的方式去描述它們可以到達哪些地方！這樣的概念好像在搭積木呢！}
+
+
+\end{document}
