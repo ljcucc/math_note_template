@@ -2,14 +2,41 @@
 \usepackage{xeCJK}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{framed}
+\usepackage{ifthen}    % 載入 ifthen 套件
+
+
+\input{settings}
 
 \graphicspath{ {./assets/} }
 
-\setCJKmainfont{LXGW WenKai Mono TC}
-\setmainfont{LXGW WenKai Mono TC}
+\setCJKmainfont{LXGW WenKai TC}
+\setmainfont{LXGW WenKai TC}
 
-\newcommand{\readerName}{Wuffels Wolf}
-\newcommand{\teacherName}{Dr.Drone}
+% \setCJKmainfont{jf-openhuninn-2.0}
+% \setmainfont{jf-openhuninn-2.0}
+
+\newcommand{\readerName}{歐亞狼. 沃夫}
+\newcommand{\teacherName}{IT. 龍}
+\colorlet{readerColor}{YellowOrange}
+\definecolor{teacherColor}{RGB}{21, 66, 130}
+
+% --- 定義條件式的 vspace 指令 ---
+% 如果文章段落很長，可以使用這種 Gap 來避免小文件文字被覆蓋的問題。
+\newcommand{\smallerVerticalGap}{%
+  % \lengthtest{} 用於比較長度
+  % 檢查 \paperwidth 是否小於 180mm (A5=148mm, A4=210mm)
+  \ifthenelse{\lengthtest{\paperwidth < 180mm}}{%
+    % --- 如果為 TRUE (偵測到類 A5 尺寸) ---
+    \par\vspace{0cm}% 在 A5 時使用的間距
+    %\typeout{Paper detected as A5-ish, using vspace 0cm}% 取消註解可看訊息
+  }{%
+    % --- 如果為 FALSE (偵測到類 A4 或更大尺寸) ---
+    \par\vspace{-2cm}% 在 A4 時使用的間距
+    %\typeout{Paper detected as non-A5, using vspace -2cm}% 取消註解可看訊息
+  }%
+  % 加 \par 確保 vspace 在垂直模式下生效
+}
+% --- 結束定義 ---
 
 % 定义主宏命令 (保持不变)
 \newcommand{\imageAndText}[4]{%
@@ -68,12 +95,12 @@
 
 \newenvironment{readerSaid}{
   \medskip
-    \color{YellowOrange}
+    \color{readerColor}
 }{\medskip}
 
 \newenvironment{teacherSaid}{
   \medskip
-    \color{MidnightBlue}
+    \color{teacherColor}
 }{\medskip}
 
 \newcommand{\readerConfused}[1]{
@@ -86,12 +113,12 @@
       \vspace{0.5em} % 图片和标题之间留一点垂直空间
       \centering % 确保标题文本居中
       \small % 使用小字体作为标题
-      {\textcolor{YellowOrange}\readerName}
+      {\textcolor{readerColor}\readerName}
       % 注意：这里没有 \caption{...}，这只是普通的文本
       % 也不能使用 \label{...} 来引用
     } % 左侧区域内容 (图片 + 手动标题)
     {1em} % 图片和文本之间的间距
-    {\linewidth0.35\textwidth\textcolor{YellowOrange}{#1}}
+    {\linewidth0.35\textwidth\textcolor{readerColor}{#1}}
 }
 
 \newcommand{\readerEureka}[1]{
@@ -103,10 +130,10 @@
       \vspace{0.5em}
       \centering
       \small
-      {\textcolor{YellowOrange}\readerName}
+      {\textcolor{readerColor}\readerName}
     }
     {1em}
-    {\textcolor{YellowOrange}{#1}}
+    {\textcolor{readerColor}{#1}}
 }
 
 \newcommand{\readerQuestioning}[1]{
@@ -115,10 +142,10 @@
     {
       \centering  \includegraphics[width=\linewidth]{a-questioning.png}
       \vspace{0.5em}
-      \centering \small {\textcolor{YellowOrange}\readerName}
+      \centering \small {\textcolor{readerColor}\readerName}
     }
     {1em}
-    {\textcolor{YellowOrange}{#1}}
+    {\textcolor{readerColor}{#1}}
 }
 
 \newcommand{\readerExcitement}[1]{
@@ -127,10 +154,10 @@
     {
       \centering  \includegraphics[width=\linewidth]{a-excitement.png}
       \vspace{0.5em}
-      \centering \small {\textcolor{YellowOrange}\readerName}
+      \centering \small {\textcolor{readerColor}\readerName}
     }
     {1em}
-    {\textcolor{YellowOrange}{#1}}
+    {\textcolor{readerColor}{#1}}
 }
 
 
@@ -143,10 +170,10 @@
     \vspace{0.5em}
     \centering
     \small
-    {\textcolor{MidnightBlue}\teacherName}
+    {\textcolor{teacherColor}\teacherName}
   }
   {1em}
-  {\textcolor{MidnightBlue}{#1}}
+  {\textcolor{teacherColor}{#1}}
 }
 
 \newcommand{\teacherTalking}[1]{
@@ -158,10 +185,10 @@
       \vspace{0.5em}
       \centering
       \small
-      {\textcolor{MidnightBlue}\teacherName}
+      {\textcolor{teacherColor}\teacherName}
     }
     {1em}
-    {\textcolor{MidnightBlue}{#1}}
+    {\textcolor{teacherColor}{#1}}
 }
 
 \newcommand{\teacherPause}[1]{
@@ -172,8 +199,8 @@
       \includegraphics[width=\linewidth]{b-pause.png}
       \vspace{0.5em}
       \centering
-      \small {\textcolor{MidnightBlue}\teacherName}
+      \small {\textcolor{teacherColor}\teacherName}
     }
     {1em}
-    {\textcolor{MidnightBlue}{#1}}
+    {\textcolor{teacherColor}{#1}}
 }

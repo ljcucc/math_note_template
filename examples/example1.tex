@@ -1,0 +1,109 @@
+\documentclass[class=article, crop=false]{standalone}
+
+\usepackage[subpreambles=true]{standalone}
+
+\usepackage{xcolor}
+\usepackage{graphicx}     % 确保加载 graphicx 宏包
+\usepackage{lipsum}
+\usepackage{xeCJK}
+\usepackage{geometry}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section{角色對話框}
+
+\subsection{讀者}
+讀者角色(\readerName) 會盡可能提出一些讀者或初學者可能會提出的問題。
+
+\vspace{2cm} % 添加一些空间
+\readerConfused{我很疑惑，為什麼會這樣}
+\readerEureka{原來如此！那我知道了！}
+\readerQuestioning{不對啊！這跟你說的不一樣啊}
+\readerExcitement{我知道！我知道！}
+
+\subsection{講師}
+講師(\teacherName) 會去回覆讀者的問題、去解釋一些概念。
+\vspace{2cm} % 添加一些空间
+\teacherConfident{沒錯！就是這樣！跟你說的一樣，只要照著做就會成功！}
+\teacherPause{你可以這麼理解吧？}
+\teacherTalking{首先讓我來舉一些例子！}
+
+\break
+\subsection{對話範例1}
+前後對話間，會有一個 \textbackslash space\{-4cm\} 的空間，讓對話間的空白更小。
+\readerConfused{我很疑惑，為什麼會這樣}
+\vspace{-4cm}
+\teacherTalking{沒問題啊}
+\readerExcitement{對欸！那我搞錯了}
+
+\begin{textRight}\begin{readerSaid}
+\lipsum[1]
+\end{readerSaid}\end{textRight}
+
+\begin{textLeft}\begin{teacherSaid}
+\lipsum[1]
+\end{teacherSaid}\end{textLeft}
+
+\teacherConfident{就是這樣字！}
+
+\break
+\subsection{對話範例2}
+\readerConfused{Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, rabitur  auctor  semper vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur dictum nulla. Donec varius gravida mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate orci eget risus. Duisa, magna.}
+\smallerVerticalGap
+\teacherTalking{Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, rabitur  auctor  semper vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur dictum nulla. Donec varius gravida mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate orci eget risus. Duisa, magna.}
+\smallerVerticalGap
+\readerExcitement{Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, rabitur  auctor  semper vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur dictum nulla. Donec varius gravida mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate orci eget risus. Duisa, magna.}
+
+\begin{textRight}\begin{readerSaid}
+\lipsum[1]
+\end{readerSaid}\end{textRight}
+
+\begin{center}
+中間的一些解釋...
+\end{center}
+
+\begin{textLeft}\begin{teacherSaid}
+\lipsum[1]
+\end{teacherSaid}\end{textLeft}
+
+\teacherConfident{Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, rabitur  auctor  semper vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur dictum nulla. Donec varius gravida mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate orci eget risus. Duisa, magna.}
+
+\break
+\section{圖表}
+
+\subsection{數學圖表的繪製}
+
+\begin{textLeft}
+\begin{teacherSaid}
+\lipsum[1] \\ \\
+\begin{tikzpicture}
+\begin{axis}
+\pgfplotsset{
+  axis line style={teacherColor},
+  every axis label/.append style ={teacherColor},
+  every tick label/.append style={teacherColor}
+}
+\addplot[color=teacherColor]{exp(x)};
+\end{axis}
+\end{tikzpicture}
+\end{teacherSaid}
+\end{textLeft}
+
+\begin{textRight}
+\begin{readerSaid}
+\lipsum[1] \\ \\
+\begin{tikzpicture}
+\begin{axis}
+\pgfplotsset{
+  axis line style={readerColor},
+  every axis label/.append style ={readerColor},
+  every tick label/.append style={readerColor}
+}
+\addplot[color=readerColor]{sqrt(x)};
+\end{axis}
+\end{tikzpicture}
+\end{readerSaid}
+\end{textRight}
+
+\end{document}
