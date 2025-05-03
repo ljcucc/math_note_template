@@ -1,0 +1,55 @@
+\newcommand{\readerSettingsDescription}{
+\begin{textRight}
+\begin{minipage}[c]{\linewidth}
+  {\Large \readerName} \\ \\
+  {(He/Him) 一隻歐亞狼，對學習有高度的好奇心，遇到不同的概念總是第一個提問。跟 Dr.Drone 是的舊識好友，一起做思想實驗是他們常常做的娛樂活動。}
+\end{minipage}
+\end{textRight}
+}
+
+\newcommand{\teacherSettingsDescription}{
+\begin{textLeft}
+\begin{minipage}[c]{\linewidth}
+  {\Large \teacherName} \\ \\
+  {(He/Him) 一隻龍型機器人 (類似於 Synth)，是一號機。非常聰明的他什麼都知道，沒有難得倒他的事情。}
+\end{minipage}
+\end{textLeft}
+}
+
+\newcommand{\readerSettings}{
+  \textAndImage
+    {0.35\textwidth} % 左侧区域宽度
+    {%
+      \centering
+      \includegraphics[width=\linewidth]{a-settings.png}
+      % \vspace{0.5em}
+      % \centering
+      % \small
+      % {\textcolor{YellowOrange}\readerName}
+    }
+    {1em}
+    {\textcolor{readerColor}{\readerSettingsDescription}}
+}
+
+\newcommand{\teacherSettings}{
+  \imageAndText
+    {0.35\textwidth} % 左侧区域宽度
+    {%
+      \centering
+      \includegraphics[width=\linewidth]{b-settings.png}
+      % \vspace{0.5em}
+      % \centering
+      % \small
+      % {\textcolor{YellowOrange}\readerName}
+    }
+    {1em}
+    {\textcolor{teacherColor}{\teacherSettingsDescription}}
+}
+
+\newcommand{\characterPage}{
+\break
+\section*{角色介紹}
+\readerSettings
+\teacherSettings
+\break
+}
