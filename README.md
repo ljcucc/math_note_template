@@ -1,5 +1,17 @@
 # Math note template
 
+When I was in high school, I used to write math notes for homework by hand, just like two people talking to each other, carrying on a conversation from the beginning to the end of a math topic.
+
+After 5 years, I finally started developing this latex template system to improve my note-taking efficiency and manage my math notes in a more advanced way.
+
+For this template, My Math Notes can be stored separately in another repository by copying it to this folder and renaming it Pages. If pages.tex is found in your notes repository, the template will automatically switch from the example/demo content to your notes content.
+
+I also implemented a few macros to help me take notes, as shown below.
+
+## Get Started
+
+To get started...
+
 git clone your other pages writing as submodule, and applied your pages in pages.tex. for example
 
 ```
