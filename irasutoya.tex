@@ -1,0 +1,10 @@
+\usepackage{xstring}
+\usepackage{graphicx} % Make sure graphicx is included
+
+\newcommand{\irasutoya}[2]{%
+  \StrSubstitute{#1}{ }{_}[\imagefilename]% Storing the modified name in \imagefilename
+  \IfFileExists{./irasutoya/\imagefilename.png}{}
+  {\immediate\write18{wget `npx @fand/irasutoya #1` -O "./irasutoya/\imagefilename.png"}}% Using the stored filename for wget
+
+  \includegraphics[width=#2]{./irasutoya/\imagefilename.png} \\ % Using the stored filename for includegraphics
+}

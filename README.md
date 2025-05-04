@@ -14,6 +14,19 @@ Compile your note via
 xelatex main.tex
 ```
 
+## Using irasutoya(いらすとや) in latex
+
+Required `nodejs` and `npm` to be installed.
+
+```latex
+\input{irasutoya} % insert this line into main.tex
+```
+
+```sh
+mkdir irasutoya # make a image folder for latex to download
+xelatex --shell-escape main.tex; open main.pdf
+```
+
 ## Setup characters
 
 To showing your characters between dialogue, you'll need to add image files into `./assets` folder. dialogs.txt is depended on these images.
