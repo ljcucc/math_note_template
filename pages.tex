@@ -2,8 +2,11 @@
 \characterPage
 \tableofcontents
 
+\IfFileExists{./pages/pages.tex}{\input{./pages/pages.tex}}
+{
 \chapter{Example 1}
 \import{examples/}{example1}
 
 \chapter{Example 2}
 \import{examples/}{example2}
+}

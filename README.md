@@ -5,7 +5,6 @@ git clone your other pages writing as submodule, and applied your pages in pages
 ```
 git clone https://github.com/ljcucc/my-math-note.git
 mv my-math-note pages
-vim pages.tex
 ```
 
 Compile your note via
