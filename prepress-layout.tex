@@ -1,0 +1,41 @@
+\documentclass[11pt]{book}
+\raggedbottom % Make spacing manually
+
+\usepackage[subpreambles=true]{standalone}
+\usepackage{import}
+\usepackage{xcolor}
+\usepackage{graphicx}     % 确保加载 graphicx 宏包
+\usepackage{lipsum}
+\usepackage{xeCJK}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{pgfplots} % 用於圖表繪製
+\usepackage[subpreambles=true]{standalone}
+\geometry{a5paper , top=2cm, bottom=2cm, left=1.5cm, right=1.5cm} % for apple booklet to printing at home
+
+% https://www.reddit.com/r/LaTeX/comments/19cvk5p/create_a_pdf_with_bleed_and_crop_marks_for/
+
+\usepackage[
+a4,
+cam,
+center]{crop}
+
+\title{數學筆記}
+
+\input{dialogs}
+\begin{document}
+\maketitle
+\characterPage
+\tableofcontents
+
+% \chapter{Example 1}
+% \import{examples/}{example1}
+
+% \chapter{Example 2}
+% \import{examples/}{example2}
+
+\chapter{線性代數筆記}
+\import{pages/la_note}{main}
+
+\end{document}
