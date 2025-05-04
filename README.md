@@ -25,13 +25,24 @@ mv my-math-note pages
 
 Compile your note via
 
+```sh
+xelatex main.tex # without irasutoya
+
+# with irasutoya
+xelatex -synctex=1 -interaction=nonstopmode --shell-escape main.tex; open ./main.pdf
 ```
-xelatex main.tex
+
+> Creation of the table of contents and cross-referencing call-outs -- take more than one compilation round to complete fully. [ref](https://tex.stackexchange.com/questions/301103/empty-table-of-contents)
+
+```sh
+latexmk -c # Clear .aux files
 ```
 
 ## Writing your note
 
 Your notes will stored in `pages/`, and defined in `pages/pages.tex`. you should not put any context inside `pages.tex`, instead you can put into something like `main.tex`. usually you dont needed to change codes to this template.
+
+Reference [my math note](https://github.com/ljcucc/my-math-note) as demo.
 
 the file sturcture will look like this:
 
