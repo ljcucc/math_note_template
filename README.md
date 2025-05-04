@@ -12,6 +12,8 @@ See [examples.pdf](https://github.com/ljcucc/math_note_template/releases/downloa
 
 ## Get Started
 
+[comment]: comment
+
 To get started...
 
 git clone your other pages writing as submodule, and applied your pages in pages.tex. for example
@@ -25,6 +27,54 @@ Compile your note via
 
 ```
 xelatex main.tex
+```
+
+## Writing your note
+
+Your notes will stored in `pages/`, and defined in `pages/pages.tex`. you should not put any context inside `pages.tex`, instead you can put into something like `main.tex`. usually you dont needed to change codes to this template.
+
+the file sturcture will look like this:
+
+* `pages/`: your git repository
+  * `pages.tex`: fixed, necessary.
+  * `my_first_chapter/`: example chapter one (any name you want)
+    * `main.tex`: recommended name
+    * `some_paeg.tex`: ...
+    * ...
+  * `another_chapter/`: example chatper tw (any name you want)
+    * `main.tex`: recommended name
+    * ...
+
+for example `pages/pages.tex`
+
+```latex
+\maketitle
+\characterPage % making a character introduction page
+\tableofcontents % making pages of table of contents
+
+\chapter{This is chapter one} % a chapter is defined
+\import{pages/my_first_chapter}{main} % full path from the note template
+
+% ...
+```
+
+and your `pages/my_first_chapter/main.tex` could contains the chapter one outlines:
+
+```latex
+\documentclass[class=article, crop=false]{standalone}
+
+\usepackage[subpreambles=true]{standalone}
+
+\begin{document}
+
+% where, your chapter's sections were defined in other files:
+
+\include{sec1.tex}
+\include{sec2.tex}
+\include{sec3.tex}
+% ...\include{sec[n].tex}
+
+\end{document}
 ```
 
 ## Using irasutoya(いらすとや) in latex
