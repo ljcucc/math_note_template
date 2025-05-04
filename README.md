@@ -26,6 +26,12 @@ mkdir irasutoya # make a image folder for latex to download
 xelatex -synctex=1 -interaction=nonstopmode --shell-escape main.tex; open ./main.pdf
 ```
 
+To use irasutoya
+
+```latex
+\irasutoya{Your image search keyword in japanese}{image width}
+```
+
 ## Setup characters
 
 To showing your characters between dialogue, you'll need to add image files into `./assets` folder. dialogs.txt is depended on these images.
@@ -47,6 +53,24 @@ for teacher character
 * `b-pause.png`: teacher is pausing for a moment.
 * `b-talking.png`: teacher is talking.
 * `b-settings`: characters settings
+
+## Dialogue usage
+
+```latex
+% Reader Dialogue
+\readerConfused{text}
+\readerEureka{text}
+\readerExcitment{text}
+\readerQuestioning{text}
+\readerGrinning{text}
+
+% Teacher Dialogue
+\teacherConfident{text}
+\teacherPause{text}
+\teacherTalking{text}
+```
+
+Reference `example/` for more dialogue usage.
 
 ## Copyright and License
 
