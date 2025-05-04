@@ -8,6 +8,8 @@ For this template, My Math Notes can be stored separately in another repository 
 
 I also implemented a few macros to help me take notes, as shown below.
 
+See [examples.pdf](https://github.com/ljcucc/math_note_template/releases/download/demonstration/examples.pdf) for the result.
+
 ## Get Started
 
 To get started...
