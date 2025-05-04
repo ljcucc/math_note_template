@@ -10,25 +10,21 @@
 \usepackage{xeCJK}
 \usepackage{geometry}
 \usepackage{amsmath}
+\usepackage{setspace}
 
 \usepackage{pgfplots} % 用於圖表繪製
 
 \usepackage[subpreambles=true]{standalone}
 
 % \geometry{a4paper , margin=2cm}
-\geometry{a5paper , margin=1cm}
+\geometry{a5paper , margin=1cm} % for apple booklet to printing at home
 
-\title{數學筆記範例}
+\title{數學筆記}
+% \setlength{\parskip}{5pt}
 
 \input{dialogs}
 \begin{document}
-\maketitle
-\characterPage
 
-\chapter{Example 1}
-\import{examples/}{example1}
-
-\chapter{Example 2}
-\import{examples/}{example2}
+\input{pages}
 
 \end{document}
