@@ -24,7 +24,7 @@ Required `nodejs` and `npm` to be installed.
 
 ```sh
 mkdir irasutoya # make a image folder for latex to download
-xelatex --shell-escape main.tex; open main.pdf
+xelatex -synctex=1 -interaction=nonstopmode --shell-escape main.tex; open ./main.pdf
 ```
 
 ## Setup characters
