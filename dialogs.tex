@@ -4,8 +4,11 @@
 \usepackage{framed}
 \usepackage{ifthen}    % 載入 ifthen 套件
 
+% ========== Character settings content ==========
 
 \input{settings}
+
+% ========== Configs ==========
 
 \graphicspath{ {./assets/} }
 
@@ -19,6 +22,8 @@
 \newcommand{\teacherName}{IT. 龍}
 \colorlet{readerColor}{YellowOrange}
 \definecolor{teacherColor}{RGB}{21, 66, 130}
+
+% ========== Gaps ==========
 
 % --- 定義條件式的 vspace 指令 ---
 % 如果文章段落很長，可以使用這種 Gap 來避免小文件文字被覆蓋的問題。
@@ -37,6 +42,9 @@
   % 加 \par 確保 vspace 在垂直模式下生效
 }
 % --- 結束定義 ---
+
+
+% ========== Image & Text Composition Block ==========
 
 % 定义主宏命令 (保持不变)
 \newcommand{\imageAndText}[4]{%
@@ -69,6 +77,8 @@
   \par
 }
 
+% ========== Positoin Block ==========
+
 \newenvironment{textRight}[0]{%
   % Code executed at \begin{textRight}
   \par\noindent
@@ -93,6 +103,8 @@
   \par%
 }
 
+% ========== Someone Said Paragraph Block ==========
+
 \newenvironment{readerSaid}{
   \medskip
     \color{readerColor}
@@ -103,13 +115,15 @@
     \color{teacherColor}
 }{\medskip}
 
-\newcommand{\readerConfused}[1]{
+% ========== Reader Dialog ==========
+
+\newcommand{\readerDialog}[2]{
   \textAndImage
     {0.25\textwidth} % 左侧区域宽度
     {%
       % 这是 figure 环境里面的内容，但没有 figure 环境本身
       \centering % 确保图片在左侧区域居中
-      \includegraphics[width=\linewidth]{a-confused.png} % 使用 \linewidth 让图片宽度充满左侧区域
+      \includegraphics[width=\linewidth]{#2} % 使用 \linewidth 让图片宽度充满左侧区域
       \vspace{0.5em} % 图片和标题之间留一点垂直空间
       \centering % 确保标题文本居中
       \small % 使用小字体作为标题
@@ -121,64 +135,43 @@
     {\linewidth0.35\textwidth\textcolor{readerColor}{#1}}
 }
 
+
+\newcommand{\readerConfused}[1]{
+  \readerDialog{#1}{a-confused.png}
+}
+
 \newcommand{\readerEureka}[1]{
-  \textAndImage
-    {0.25\textwidth} % 左侧区域宽度
-    {%
-      \centering
-      \includegraphics[width=\linewidth]{a-eureka.png}
-      \vspace{0.5em}
-      \centering
-      \small
-      {\textcolor{readerColor}\readerName}
-    }
-    {1em}
-    {\textcolor{readerColor}{#1}}
+  \readerDialog{#1}{a-eureka.png}
 }
 
 \newcommand{\readerQuestioning}[1]{
-  \textAndImage
-    {0.25\textwidth}
-    {
-      \centering  \includegraphics[width=\linewidth]{a-questioning.png}
-      \vspace{0.5em}
-      \centering \small {\textcolor{readerColor}\readerName}
-    }
-    {1em}
-    {\textcolor{readerColor}{#1}}
+  \readerDialog{#1}{a-questioning.png}
 }
 
 \newcommand{\readerExcitement}[1]{
-  \textAndImage
-    {0.25\textwidth}
-    {
-      \centering  \includegraphics[width=\linewidth]{a-excitement.png}
-      \vspace{0.5em}
-      \centering \small {\textcolor{readerColor}\readerName}
-    }
-    {1em}
-    {\textcolor{readerColor}{#1}}
+  \readerDialog{#1}{a-excitement.png}
 }
 
 \newcommand{\readerGrinning}[1]{
-  \textAndImage
-    {0.25\textwidth}
-    {
-      \centering  \includegraphics[width=\linewidth]{a-grinning.png}
-      \vspace{0.5em}
-      \centering \small {\textcolor{readerColor}\readerName}
-    }
-    {1em}
-    {\textcolor{readerColor}{#1}}
+  \readerDialog{#1}{a-grinning.png}
 }
 
+\newcommand{\readerAgree}[1]{
+  \readerDialog{#1}{a-agree.png}
+}
 
-\newcommand{\teacherConfident}[1]{
+\newcommand{\readerConcern}[1]{
+  \readerDialog{#1}{a-concern.png}
+}
+
+% ========== Teacher Dialog ==========
+
+\newcommand{\teacherDialog}[2]{
   \imageAndText
   {0.25\textwidth}
   {
     \centering
-    \includegraphics[width=\linewidth]{b-confident.png}
+    \includegraphics[width=\linewidth]{#2}
     \vspace{0.5em}
     \centering
     \small
@@ -188,31 +181,39 @@
   {\textcolor{teacherColor}{#1}}
 }
 
+\newcommand{\teacherConfident}[1]{
+  \teacherDialog{#1}{b-confident.png}
+}
+
 \newcommand{\teacherTalking}[1]{
-  \imageAndText
-    {0.25\textwidth}
-    {
-      \centering
-      \includegraphics[width=\linewidth]{b-talking.png}
-      \vspace{0.5em}
-      \centering
-      \small
-      {\textcolor{teacherColor}\teacherName}
-    }
-    {1em}
-    {\textcolor{teacherColor}{#1}}
+  \teacherDialog{#1}{b-talking.png}
 }
 
 \newcommand{\teacherPause}[1]{
-  \imageAndText
-    {0.25\textwidth}
-    {
-      \centering
-      \includegraphics[width=\linewidth]{b-pause.png}
-      \vspace{0.5em}
-      \centering
-      \small {\textcolor{teacherColor}\teacherName}
-    }
-    {1em}
-    {\textcolor{teacherColor}{#1}}
+  \teacherDialog{#1}{b-pause.png}
+}
+
+\newcommand{\teacherAgree}[1]{
+  \teacherDialog{#1}{b-agree.png}
+}
+
+\newcommand{\teacherAngry}[1]{
+  \teacherDialog{#1}{b-angry.png}
+}
+
+\newcommand{\teacherNervous}[1]{
+  \teacherDialog{#1}{b-nervous.png}
+}
+
+\newcommand{\teacherAfraid}[1]{
+  \teacherDialog{#1}{b-afraid.png}
+}
+% ========== Plot color settings ==========
+
+\newcommand{\teacherPlotSettings}{
+  \pgfplotsset{
+    axis line style={teacherColor},
+    every axis label/.append style ={teacherColor},
+    every tick label/.append style={teacherColor}
+  }
 }
