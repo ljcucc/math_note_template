@@ -1,6 +1,12 @@
 # Math note template
 
+Purpose of this note template must trace back to my backstory.
+
+## Origin
+
 When I was in high school, I used to write math notes for homework by hand, just like two people talking to each other, carrying on a conversation from the beginning to the end of a math topic.
+
+During high school, I was deeply impacted by the support from my classmates and teachers. I always expect my notes would be helpful to others, and at the same time, I told myself they were also for my future self. However, upon entering university, that supportive environment was gone, and I fell into deep depression.
 
 After 5 years, I finally started developing this latex template system to improve my note-taking efficiency and manage my math notes in a more advanced way.
 
@@ -143,6 +149,46 @@ for teacher character
 \teacherConfident{text}
 \teacherPause{text}
 \teacherTalking{text}
+\teacherAgree{text}
+\teacherAngry{text}
+\teacherNervous{text}
+\teacherAfraid{text}
+
+\begin{readerConfused}
+\end{readerConfused}
+
+\begin{readerEureka}
+\end{readerEureka}
+
+\begin{readerExcitment}
+\end{readerExcitment}
+
+\begin{readerQuestioning}
+\end{readerQuestioning}
+
+\begin{readerGrinning}
+\end{readerGrinning}
+
+\begin{teacherConfident}
+\end{teacherConfident}
+
+\begin{teacherPause}
+\end{teacherPause}
+
+\begin{teacherTalking}
+\end{teacherTalking}
+
+\begin{teacherAgree}
+\end{teacherAgree}
+
+\begin{teacherAngry}
+\end{teacherAngry}
+
+\begin{teacherNervous}
+\end{teacherNervous}
+
+\begin{teacherAfraid}
+\end{teacherAfraid}
 ```
 
 Reference `example/` for more dialogue usage.

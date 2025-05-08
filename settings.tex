@@ -2,7 +2,7 @@
 \begin{textRight}
 \begin{minipage}[c]{\linewidth}
   {\Large \readerName} \\ \\
-  {(He/Him) 一隻歐亞狼，對學習有高度的好奇心，遇到不同的概念總是第一個提問。跟 Dr.Drone 是的舊識好友，一起做思想實驗是他們常常做的娛樂活動。}
+  {(He/Him) 一隻歐亞狼，對學習有高度的好奇心，遇到不同的概念總是第一個提問。跟 \teacherName 是的舊識好友，一起做思想實驗是他們常常做的娛樂活動。他會作為讀者的身分一起跟我們走過學習的旅程。}
 \end{minipage}
 \end{textRight}
 }
@@ -11,28 +11,26 @@
 \begin{textLeft}
 \begin{minipage}[c]{\linewidth}
   {\Large \teacherName} \\ \\
-  {(He/Him) 一隻龍型機器人 (類似於 Synth)，是一號機。非常聰明的他什麼都知道，沒有難得倒他的事情。}
+  {(He/Him) 一隻龍型機器人 (類似於 Synth)，內建核融合發電機，完全不需要吃東西也能存活。而且他非常聰明的他什麼都知道，聚集了毛類歷年以來的所有科技和知識結晶，沒有難得倒他的事情。是我們這次學習旅程的嚮導。}
 \end{minipage}
 \end{textLeft}
 }
 
 \newcommand{\readerSettings}{
-  \textAndImage
+  \begin{textAndImageEnv}
     {0.35\textwidth} % 左侧区域宽度
     {%
       \centering
       \includegraphics[width=\linewidth]{a-settings.png}
-      % \vspace{0.5em}
-      % \centering
-      % \small
-      % {\textcolor{YellowOrange}\readerName}
     }
     {1em}
-    {\textcolor{readerColor}{\readerSettingsDescription}}
+
+    \textcolor{readerColor}{\readerSettingsDescription}
+  \end{textAndImageEnv}
 }
 
 \newcommand{\teacherSettings}{
-  \imageAndText
+  \begin{imageAndTextEnv}
     {0.35\textwidth} % 左侧区域宽度
     {%
       \centering
@@ -43,7 +41,9 @@
       % {\textcolor{YellowOrange}\readerName}
     }
     {1em}
-    {\textcolor{teacherColor}{\teacherSettingsDescription}}
+
+    \textcolor{teacherColor}{\teacherSettingsDescription}
+  \end{imageAndTextEnv}
 }
 
 \newcommand{\characterPage}{
