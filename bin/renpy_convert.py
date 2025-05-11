@@ -7,6 +7,7 @@ import ziamath as zm
 import cairosvg
 
 def latex_to_png(expr_str, output_path):
+    print(expr_str)
     expr = zm.Latex(expr_str, color='white')
     png_bytes = cairosvg.svg2png(expr.svg())
     with open(output_path, 'wb') as f:
@@ -78,6 +79,7 @@ def process_blocks(blocks, output_dir):
             result.append(renpy_cmd)
         speaker = "b" if "teacher" in block_type.lower() else "a"
         lines = processed_text.splitlines()
+        output_line = ""
         for line in lines:
             if line.strip():
                 escaped_line = (
@@ -89,7 +91,8 @@ def process_blocks(blocks, output_dir):
                 )
                 if(escaped_line[-1] == "\\"):
                   escaped_line = escaped_line[:-1]
-                result.append(f'    {speaker} "{escaped_line}"')
+                output_line += escaped_line
+        result.append(f'    {speaker} "{output_line}"')
 
     return "\n".join(result)
 
