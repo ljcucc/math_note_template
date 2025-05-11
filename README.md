@@ -193,6 +193,10 @@ for teacher character
 
 Reference `example/` for more dialogue usage.
 
+## Create VN(Visual Novel) with your note - Ren'Py
+
+See [latex_renpy](https://github.com/ljcucc/latex_renpy) for more.
+
 ## Copyright and License
 
 see [License](LICENSE) for license.
