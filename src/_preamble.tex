@@ -4,7 +4,8 @@
 \usepackage[subpreambles=true]{standalone}
 \usepackage{import}
 
-\usepackage{xcolor}
+% \usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{graphicx}     % 确保加载 graphicx 宏包
 \usepackage{lipsum}
 \usepackage{xeCJK}
@@ -17,7 +18,8 @@
 \usepackage[subpreambles=true]{standalone}
 
 % \geometry{a4paper , margin=2cm}
-\geometry{a5paper , margin=1cm} % for apple booklet to printing at home
+\geometry{a5paper , top=1cm, bottom=1cm, left=1.5cm, right=1.5cm} % printing on notebook paper.at home
+% \geometry{a5paper , margin=1cm} % for apple booklet to printing at home
 
 \title{數學筆記}
 % \setlength{\parskip}{5pt}
@@ -28,5 +30,3 @@
 \begin{document}
 
 \input{pages}
-
-\end{document}

@@ -27,21 +27,20 @@ git clone your other pages writing as submodule, and applied your pages in pages
 ```
 git clone https://github.com/ljcucc/my-math-note.git
 mv my-math-note pages
+mv pages src/
 ```
 
-Compile your note via
+Compile your note via **Tectonic**
 
 ```sh
-xelatex main.tex # without irasutoya
+# Build default target
+tectonic -X build --target default
 
-# with irasutoya
-xelatex -synctex=1 -interaction=nonstopmode --shell-escape main.tex; open ./main.pdf
-```
+# Build prepress layout target
+tectonic -X build --target prepress-layout
 
-> Creation of the table of contents and cross-referencing call-outs -- take more than one compilation round to complete fully. [ref](https://tex.stackexchange.com/questions/301103/empty-table-of-contents)
-
-```sh
-latexmk -c # Clear .aux files
+# Build diagram-only target
+tectonic -X build --target diagram-only
 ```
 
 ## Writing your note

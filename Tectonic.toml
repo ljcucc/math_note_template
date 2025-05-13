@@ -1,0 +1,20 @@
+[doc]
+name = "note-template"
+bundle = "https://data1.fullyjustified.net/tlextras-2022.0r0.tar"
+
+[[output]]
+name = "default"
+type = "pdf"
+shell_escape = true
+
+[[output]]
+name = "diagram-only"
+type = "pdf"
+preamble = "_diagram_only_preamble.tex"
+shell_escape = true
+
+[[output]]
+name = "prepress-layout"
+type = "pdf"
+preamble = "_prepress_layout_preamble.tex"
+shell_escape = true
