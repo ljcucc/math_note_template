@@ -101,9 +101,11 @@ Required `nodejs` and `npm` to be installed.
 \input{irasutoya} % insert this line into main.tex
 ```
 
+since the irasutoya feature is implemented using write18 commands, and the tectonic is building your files inside tmp folder, you may set the `shell_escape_cwd` to your `note-template` folder to continue (where you cloned this repo).
+
 ```sh
-mkdir irasutoya # make a image folder for latex to download
-xelatex -synctex=1 -interaction=nonstopmode --shell-escape main.tex; open ./main.pdf
+# and build target
+tectonic -X build --target default
 ```
 
 To use irasutoya
