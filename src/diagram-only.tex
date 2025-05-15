@@ -1,0 +1,172 @@
+\usepackage{graphicx}     % 确保加载 graphicx 宏包
+\usepackage{xeCJK}
+% \usepackage[dvipsnames]{xcolor}
+\usepackage{framed}
+\usepackage{ifthen}    % 載入 ifthen 套件
+\usepackage{environ}
+\usepackage{comment}
+
+% ========== Character settings content ==========
+
+\renewcommand{\tableofcontents}{}
+\renewcommand{\maketitle}{}
+\newcommand{\chapter}[1]{}
+\renewcommand{\section}[1]{}
+\renewcommand{\subsection}[1]{}
+\renewcommand{\subsubsection}[1]{}
+
+% \input{settings}
+\newcommand{\characterPage}{}
+
+% ========== Configs ==========
+
+\graphicspath{ {./assets/} }
+
+\setCJKmainfont{LXGW WenKai TC}
+\setmainfont{LXGW WenKai TC}
+
+% \setCJKmainfont{jf-openhuninn-2.0}
+% \setmainfont{jf-openhuninn-2.0}
+
+\newcommand{\readerName}{歐亞狼. 沃夫}
+\newcommand{\teacherName}{IT. 龍}
+\colorlet{readerColor}{YellowOrange}
+\definecolor{teacherColor}{RGB}{21, 66, 130}
+
+% ========== Gaps ==========
+
+% --- 定義條件式的 vspace 指令 ---
+% 如果文章段落很長，可以使用這種 Gap 來避免小文件文字被覆蓋的問題。
+\newcommand{\smallerVerticalGap}{%
+  % \lengthtest{} 用於比較長度
+  % 檢查 \paperwidth 是否小於 180mm (A5=148mm, A4=210mm)
+  \ifthenelse{\lengthtest{\paperwidth < 180mm}}{%
+    % --- 如果為 TRUE (偵測到類 A5 尺寸) ---
+    \par\vspace{0cm}% 在 A5 時使用的間距
+    %\typeout{Paper detected as A5-ish, using vspace 0cm}% 取消註解可看訊息
+  }{%
+    % --- 如果為 FALSE (偵測到類 A4 或更大尺寸) ---
+    \par\vspace{-2cm}% 在 A4 時使用的間距
+    %\typeout{Paper detected as non-A5, using vspace -2cm}% 取消註解可看訊息
+  }%
+  % 加 \par 確保 vspace 在垂直模式下生效
+}
+% --- 結束定義 ---
+
+
+% ========== Image & Text Composition Block ==========
+
+\excludecomment{textAndImageEnv}
+\excludecomment{imageAndTextEnv}
+
+\excludecomment{textRight}
+\excludecomment{textLeft}
+
+% ========== Someone Said Paragraph Block ==========
+
+\excludecomment{readerSaid}
+\excludecomment{teacherSaid}
+
+\newenvironment{readerSaidFigure}{\pagebreak}{}
+\newenvironment{teacherSaidFigure}{\pagebreak}{}
+
+% \newenvironment{readerSaidFigure}{
+% }{\medskip\end{readerSaid}}
+
+% \newenvironment{teacherSaidFigure}{
+%   \begin{teacherSaid}
+% }{\medskip\end{teacherSaid}}
+
+% ========== Reader Dialog ==========
+
+\excludecomment{readerDialogEnv}
+
+\excludecomment{readerConfusedEnv}
+
+\newcommand{\readerConfused}[1]{\begin{readerConfusedEnv} #1 \end{readerConfusedEnv}}
+
+\excludecomment{readerEurekaEnv}
+
+\newcommand{\readerEureka}[1]{
+\begin{readerEurekaEnv} #1 \end{readerEurekaEnv}}
+
+\excludecomment{readerQuestioningEnv}
+
+\newcommand{\readerQuestioning}[1]{
+\begin{readerQuestioningEnv} #1 \end{readerQuestioningEnv}}
+
+\excludecomment{readerExcitementEnv}
+
+\newcommand{\readerExcitement}[1]{
+\begin{readerExcitementEnv} #1 \end{readerExcitementEnv}}
+
+\excludecomment{readerGrinningEnv}
+
+\newcommand{\readerGrinning}[1]{
+\begin{readerGrinningEnv} #1 \end{readerGrinningEnv}}
+
+\excludecomment{readerAgreeEnv}
+
+\newcommand{\readerAgree}[1]{
+\begin{readerAgreeEnv} #1 \end{readerAgreeEnv}}
+
+\excludecomment{readerConcernEnv}
+
+\newcommand{\readerConcern}[1]{
+\begin{readerConcernEnv} #1 \end{readerConcernEnv}}
+
+% ========== Teacher Dialog ==========
+
+\excludecomment{teacherDialogEnv}
+
+% Confident
+\excludecomment{teacherConfidentEnv}
+\newcommand{\teacherConfident}[1]{%
+  \begin{teacherConfidentEnv}#1\end{teacherConfidentEnv}%
+}
+
+% Talking
+\excludecomment{teacherTalkingEnv}
+\newcommand{\teacherTalking}[1]{%
+  \begin{teacherTalkingEnv}#1\end{teacherTalkingEnv}%
+}
+
+% Pause
+\excludecomment{teacherPauseEnv}
+\newcommand{\teacherPause}[1]{%
+  \begin{teacherPauseEnv}#1\end{teacherPauseEnv}%
+}
+
+% Agree
+\excludecomment{teacherAgreeEnv}
+\newcommand{\teacherAgree}[1]{%
+  \begin{teacherAgreeEnv}#1\end{teacherAgreeEnv}%
+}
+
+% Angry
+\excludecomment{teacherAngryEnv}
+\newcommand{\teacherAngry}[1]{%
+  \begin{teacherAngryEnv}#1\end{teacherAngryEnv}%
+}
+
+% Nervous
+\excludecomment{teacherNervousEnv}
+\newcommand{\teacherNervous}[1]{%
+  \begin{teacherNervousEnv}#1\end{teacherNervousEnv}%
+}
+
+% Afraid
+\excludecomment{teacherAfraidEnv}
+
+\newcommand{\teacherAfraid}[1]{%
+  \begin{teacherAfraidEnv}#1\end{teacherAfraidEnv}%
+}
+% ========== Plot color settings ==========
+
+\newcommand{\teacherPlotSettings}{
+  \pgfplotsset{
+    axis line style={teacherColor},
+    every axis label/.append style ={teacherColor},
+    every tick label/.append style={teacherColor}
+  }
+}
